@@ -1,0 +1,161 @@
+{{#*inline "nav"}}
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#presentation">Présentation</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#projets">Projets</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#dj_set">DJ-set</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#speedrun">Speedruns</a>
+        </li>
+    </ul>
+{{/inline}}
+{{#*inline "content"}}
+    <div class="container-fluid p-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="presentation">
+            <div class="w-100">
+                <h2 class="mb-0">Bienvenue sur le site de Benjamin Bihanic</h2>
+                <p class="lead mb-5"  style="text-align:justify">
+                    L'objectif de ce site web est de référencer mes travaux les plus intéressants afin de les partager à différentes personnes.<br>
+                    Ce site web a été developpé dans le langage de programmation Rust à l'aide du framework web <a href="https://github.com/seanmonstar/warp">warp</a> et du moteur de template <a href="https://handlebarsjs.com/">handlebars</a>.<br>
+                    Le CSS est géré par <a href="https://getbootstrap.com/">Bootstrap</a> et les icônes viennent de <a href="https://fontawesome.com/">Font Awesome</a>.
+                </p>
+                <div class="social-icons">
+                    <a href="https://github.com/Doyko">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/benjamin-bihanic/">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+                <img src="resources/pic_devling.png" style="width:30%;height:auto" class="rounded mx-left d-block" alt="resources/pic_devling.png">
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="projets">
+            <div class="w-100">
+                <h2 class="mb-5">Projets</h2>
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <h3 class="mb-0">yellow Submarine</h3>
+                        <div class="subheading mb-3">Application C++ avec SFML</div>
+                        <p style="text-align:justify">
+                            Yellow Submarine est un jeu arcade en 2D programmé en C++ avec <a href="https://www.sfml-dev.org/index-fr.php">SFML</a>. Ce projet avait deux objectifs.<br>
+                            Le premier était de se familiariser avec la programmation orientée objet et à réaliser une conception objet performante.<br>
+                            Le second objectif était de comprendre l'implémentation des principes de base d'un jeu vidéo (gestions des entités, collisions, parallaxes...).
+                        </p>
+                    </div>
+                    <div class="resume-date text-md-right">
+                        <span class="text-primary"><a href="/yellowSubmarine">Voir le projet<a></span>
+                    </div>
+                </div>
+
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <h3 class="mb-0">géolocalisation indoor par QR code</h3>
+                        <div class="subheading mb-3">Application web en Node JS</div>
+                        <p style="text-align:justify">
+                            L'objectif de ce projet est de proposer une application web pour permettre aux utilisateurs de se localiser dans l'espace, ce qui peut être très utile lors de salons d'exposition ou bien dans de grands bâtiments.<br>
+                            L'utilisateur va scanner un QR code et l'application lui indiquera sa position sur une carte. Il pourra alors saisir une destination pour voir le trajet depuis sa position actuelle.<br>
+                            L'application web est dévelopée en NodeJS et utilise des scripts Python pour la recherche de chemins.
+                        </p>
+                    </div>
+                    <div class="resume-date text-md-right">
+                        <span class="text-primary"><a href="/geoloc">Voir le projet<a></span>
+                    </div>
+                </div>
+
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <h3 class="mb-0">Benchmark de l'algorithme de Dijkstra</h3>
+                        <div class="subheading mb-3">Benchmark des langages Python, Java, C++ et Rust</div>
+                        <p style="text-align:justify">
+                            Ce projet a pour objectif de comparer la vitesse d'exécution des langages de programmation Python, Java, C++ et Rust.
+                            Ce benchmark a été réalisé sur l'algorithme de Dijkstra avec des graphes de taille variable.
+                        </p>
+                    </div>
+                    <div class="resume-date text-md-right">
+                        <span class="text-primary"><a href="/benchmark">Voir le projet<a></span>
+                    </div>
+                </div>
+
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <h3 class="mb-0">Winglight</h3>
+                        <div class="subheading mb-3">Jeu vidéo avec Game Maker Studio 2</div>
+                        <p style="text-align:justify">
+                            Winglight est un prototype de jeu vidéo que j'ai réalisé avec le moteur de jeu vidéo <a href="https://www.yoyogames.com/">Game Maker studio 2.</a><br>
+                            Ayant appris la base d'un jeu vidéo avec le projet <a href="/yellowSubmarine">Yellow Submarine</a>, utiliser un moteur de jeu m'a permis de pouvoir approfondir mes connaissances dans l'implémentation de mécaniques avancées d'un jeu vidéo telles que les cinématiques, les dialogues et les automates.
+                        </p>
+                    </div>
+                    <div class="resume-date text-md-right">
+                        <span class="text-primary"><a href="/winglight">Voir le projet<a></span>
+                    </div>
+                </div>
+                
+            </div>
+
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="dj_set">
+            <div class="w-100">
+                <h2 class="mb-5">dj_set</h2>
+                <p class="lead mb-5"  style="text-align:justify">
+                    Ayant toujours été passionné par la musique électronique, je me suis lancé dans l'apprentissage du DJ-ing. J'ai eu l'occasion de mixer lors de nombreux événements tels que des soirées étudiantes, des soirées d'intégrations, des galas de remises de diplôme...<br>
+                    Mes styles de musiques électroniques préférés sont la House, la Progressive et le Big room. Ce dessous se trouve des mix que j'ai eu l'occasion de faire.
+                </p>
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <div class="embed-responsive embed-responsive-1by1 float-left mr-2" style="width:25%;height:auto">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rHzcC8gJEXw?rel=0" allowfullscreen></iframe>
+                        </div>
+                        <p style="text-align:justify">
+                            Ce premier petit set est un set d'une demi-heure que j'ai réalisé lors d'une soirée étudiante avec des platines Numark Party Mix.<br>
+                            Ce set est principalement composé de progressive avec des musiques venant d'artistes tels que Alan Walker, KSHMR et KAAZE.
+                        </p>
+                    </div>
+                </div>
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="resume-content">
+                        <div class="embed-responsive embed-responsive-1by1 float-right ml-2" style="width:25%;height:auto">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/t_r1i0W4eY4?rel=0" allowfullscreen></iframe>
+                        </div>
+                        <p style="text-align:justify">
+                            Ce deuxième set est un set d'une heure que j'ai fait lors d'une soirée inter-école avec des platines DDJ-400.<br>
+                            Ce set commence tranquillement par de la Progressive avec des musiques de KSHMR et KAAZE, puis s'accelère avec du Big room grâce à des musiques de Hardwell et W&W.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="speedrun">
+            <div class="w-100">
+                <h2 class="mb-5">speedrun</h2>
+                <p class="lead mb-5"  style="text-align:justify">
+                    Le speedrun est une pratique liée aux jeux vidéos qui consiste à terminer un jeu vidéo le plus rapidement possible.<br>
+                    Je me suis essayé à cette discipline à travers le jeu <a href="http://www.splasher-game.com/fr/home-fr/">Splasher</a>. Splasher est un platformer français 2D indépendant. Le jeu est dynamique dans une ambiance cartoon. L'objectif est de projeter divers liquides ayant des propriétés particulières (collant, rebondissant&hellip;) sur les différentes surfaces afin d'avancer dans les niveaux.<br>
+                    L'objectif du speedrun est donc de traverser les 22 niveaux et terminer le jeu le plus rapidement possible sans faire les objectifs secondaires.
+                    Mon record personnel est de 40 minutes et 59,68 secondes. <a href="https://www.speedrun.com/splasher">Lien vers le classement du jeu.</a>
+                </p>
+                <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="embed-responsive embed-responsive-16by9 mx-auto mr-2" style="width:70%;height:auto">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/KSUEkfHyg3A?rel=0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{{/inline}}
+{{~> (parent)~}}

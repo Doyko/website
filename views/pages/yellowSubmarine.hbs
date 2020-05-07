@@ -1,0 +1,111 @@
+{{#*inline "nav"}}
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#presentation">Présentation</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#diagramme">Diagramme de classes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#collisions">Collisions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#parallaxe">Parallaxe</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#liens">Liens</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/#projets">Retour aux projets</a>
+        </li>
+    </ul>
+{{/inline}}
+{{#*inline "content"}}
+    <div class="container-fluid p-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="presentation">
+            <div class="w-100">
+                <h2 class="mb-0">Yellow Submarine</h2>
+                <div class="subheading mb-5">
+                    Application C++ avec SFML
+                </div>
+                <img src="resources/yellowSubmarine/pic_yellowSubmarine.png" style="width:70%;height:auto" class="rounded mx-auto d-block" alt="resources/yellowSubmarine/pic_yellowSubmarine.png">
+                <p class="lead mb-5" style="text-align:justify">
+                    Yellow Submarine est un jeu 2D arcade en C++ avec <a href="https://www.sfml-dev.org/index-fr.php">SFML</a> réalisé par Victor Dubois et moi-même. Le principe est, en contrôlant un sous-marin, de trouver tous les coffres au trésor en évitant la destruction du sous-marin par les divers ennemis présents tels que les requins ou les pieuvres.
+                    Toutes les ressources graphiques ont été réalisées par nous-mêmes (à l'exception des drones qui sont une référence au jeu <a href="https://store.steampowered.com/app/212680/FTL_Faster_Than_Light/?l=french">FTL : Faster Than Light</a>).
+                    La police de texte utilisée a été téléchargée sur le site <a href="https://www.dafont.com/yellow-submarine.font">dafont.com</a>.
+                    Les ressources sonores sont libres de droits. Les musiques utilisées proviennent du site <a href="https://www.bensound.com">bensound.com</a>.
+                    Les bruitages ont été téléchargés sur <a href="https://freesound.org">freesound.org</a>.
+                    Ils ont été réalisés entre autres par <a href="https://www.jshaw.co.uk">Jonathan Shaw</a> et <a href="http://www.felixblume.com">Félix Blume</a>.
+                    Et bien évidemment, le sous-marin ainsi que le nom du jeu sont fortement inspirés de la chanson des Beatles du même nom.
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="diagramme">
+            <div class="w-100">
+                <h2 class="mb-5">Diagramme de classes</h2>
+                <p style="text-align:justify">
+                    <img src="resources/yellowSubmarine/pic_UML.png" style="width:30%;height:auto" class="img-fluid float-left mr-2" alt="resources/yellowSubmarine/pic_UML.png">
+                    Nous avons une classe principale, qui est la classe <i>Entity</i> qui représente toutes les entités. Deux classes sont héritées de cette dernière, <i>MouvableEntity</i>, qui sont les entités qui se déplacent, et <i>TangibleEntity</i>, les entités tangibles qui ont une <i>hitbox</i>, et qui interagissent avec les autres entités tangibles.<br><br>
+                    Ensuite, toutes les entités présentes en jeu héritent d’au moins une de ces deux classes en fonction de leur rôle dans le jeu. Il existe, pour certaines entités, un autre niveau de hiérarchie. Par exemple toutes les créatures telles que le requin héritent de la classe <i>Mob</i>, qui elle-même hérite de <i>TangibleEntity</i> et de <i>MouvableEntiy</i>.<br><br>
+                    On atteint donc un total de 30 classes allant jusqu’à 4 niveaux de hiérarchie.
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="collisions">
+            <div class="w-100">
+                <h2 class="mb-5">Collisions</h2>
+                <p style="text-align:justify;">
+                    <img src="resources/yellowSubmarine/pic_hitbox.png" style="width:30%;height:auto" class="img-fluid float-left mr-2" alt="resources/yellowSubmarine/pic_hitbox.png">
+                    Une hitbox représente la zone dans laquelle se trouve une entité, Au début du développement, les hitboxs n’étaient que de simples rectangles. À cause de cette simplification les collisions étaient très approximatives.  Cela pouvait engendrer des situations où le joueur se faisait toucher par un ennemi alors que ce n’était pas le cas visuellement.<br><br>
+                    Pour résoudre ce problème, nous avons mis en place des hitboxs correspondant parfaitement au sprite affiché.<br><br>
+                    Afin de lire les hiboxs des différents éléments composant notre jeu, nous avons créé des fichiers bitmap (.bmp). Un fichier bitmap est composé de 0 et de 1, le 1 correspond à la présence d’un élément. Nous pouvons obtenir l’image ci-contre en associant un 0 à du blanc et un 1 à du noir sur le fichier bitmap correspondant aux entités.<br><br>
+                    Le résultat obtenu permet d'avoir des collisions testées au pixel prês. Faire des tests de collisions au pixel près est cependant assez couteux en calcul, approximer les collisions par des losanges ou ellipses permettrait de gagner en temps de calcul. Cependant cette application ne possède pas beaucoup d'entités, nous pouvons donc nous permettre de mettre en place ce genre de collisions pour améliorer l'expérience utilisateur.
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="parallaxe">
+            <div class="w-100">
+                <h2 class="mb-5">Parallaxe</h2>
+                <p style="text-align:justify">
+                    <img src="resources/yellowSubmarine/pic_background.png" style="width:20%;height:auto" class="img-fluid float-left mr-2" alt="resources/yellowSubmarine/pic_background.png">
+                    L’objectif était de construire une image de fond pour les niveaux du jeu qui défile avec le joueur.<br><br>
+                    Il fallait également que lorsque le sous-marin se trouve en haut du niveau, on voit le haut de la texture, et que quand le sous-marin se trouve en bas, on doit voir le bas de la texture, et cela pour n’importe quelle taille de niveau.
+                    Il est aussi nécessaire de prendre en compte la perspective afin de gérer le déplacement de l’image à l’horizontale, puisque le arrière plan se déplace dans le même sens que le joueur, mais moins vite, tandis que le premier plan doit se déplacer dans le sens inverse au joueur.<br><br>
+                    L’implémentation des fonctions d’affichage du arrière plan et premier plan en fonction de la position du sous-marin sur la carte a donc demandé de nombreux efforts afin d’obtenir un résultat aussi satisfaisant que celui proposé actuellement.
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="liens">
+            <div class="w-100">
+                <h2 class="mb-5">Liens</h2>
+                <ul class="fa-ul mb-0">
+                    <li>
+                        <a href="https://github.com/Doyko/YellowSubmarine">
+                            Code source du projet
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.sfml-dev.org/index-fr.php">
+                            SFML
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+{{/inline}}
+{{~> (parent)~}}

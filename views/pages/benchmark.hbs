@@ -1,0 +1,86 @@
+{{#*inline "nav"}}
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#presentation">Présentation</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#graph">Génération du graphe</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#resultats">Résultats</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#liens">Liens</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/#projets">Retour aux projets</a>
+        </li>
+    </ul>
+{{/inline}}
+{{#*inline "content"}}
+    <div class="container-fluid p-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="presentation">
+            <div class="w-100">
+                <h2 class="mb-0">Benchmark de l'algorithme de Dijkstra</h2>
+                <div class="subheading mb-5">
+                    Benchmark des langages Python, Java, C++ et Rust
+                </div>
+                <p class="lead mb-5" style="text-align:justify">
+                    Ce projet a pour objectif de comparer la vitesse d'exécution des langages de programmation Python, Java, C++ et Rust.
+                    Ce benchmark a été réalisé sur l'algorithme de Dijkstra avec des graphes de taille variable.<br>
+                    L'algorithme de Dijkstra est un algorithme pour déterminer le chemin le plus court depuis un point d'un graphe vers tous les autres points de ce graphe. La complexité de l'algorithme dépend donc de la taille du graphe utilisé, le programme va donc générer plusieurs graphes de taille croissante afin de mesurer le temps d'exécution en fonction de la taille du graphe.<br>
+                    Pour chacun graphe, le programme va itérer de nombreuses fois et prendre le temps moyen afin d'éviter des valeurs exceptionnelles.<br>
+                    L'algorithme a été écrit de façon idiomatique dans chacun des langages, ils ont le même pseudo-code. Chaque programme a été compilé avec les options d'optimisation disponibles pour le langage (par exemple -O3 pour le C++).
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="graph">
+            <div class="w-100">
+                <h2 class="mb-5">Génération du graphe</h2>
+                <p style="text-align:justify">
+                    Afin de faire fonctionner l'algorithme de Dijkstra, il est nécessaire de générer la topologie des graphes. Les graphes sont générés à l'aide d'une fonction afin d'obtenir des graphes de la taille souhaitée.<br>
+                    Cette fonction prend en paramètre le graphe actuel et un nombre de noeud à ajouter. Pour ajouter un noeud au graphe déjà existant, il faut s'assurer que ce noeud soit connecté à au moins un autre noeud pour que le graphe soit valide.
+                    Ainsi, un noeud du graphe actuel est tiré aléatoirement et sera automatiquement lié au nouveau noeud. La liaison entre les autres noeuds et le nouveau noeud se fera aléatoirement : certains noeuds seront reliés, d'autres non.<br>
+                    Grâce à ce système, le graphe généré sera assurément valide pour que l'algorithme de Dijkstra puisse fonctionner.
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="resultats">
+            <div class="w-100">
+                <h2 class="mb-5">Résultats</h2>
+                <img src="resources/pic_bench.png" style="width:70%;height:auto" class="rounded mx-auto d-block mb-2" alt="resources/pic_bench.png">
+                <p style="text-align:justify">
+                    Les courbes ci-dessus sont le résultat obtenu lorsque le programme est utilisé sur un processeur <i>Intel(R) Core(TM) i5-7200U CPU</i> (2 coeurs, 4 threads, 2,50 GHz).<br>
+                    Nous pouvons observer que le langage de script Python est beaucoup plus lent que les 3 autres langages. Le fait que celui-ci soit un langage interprété explique ce résultat.
+                    Java, Rust et C++ restent relativement proches les uns des autres. C++ reste cependant plus performant que Rust, qui est lui même plus rapide que Java.<br>
+                    La moindre performance de Java est due au fait que Java est partiellement interprété à partir de code intermédiaire (<i>byte code</i>) par une machine virtuelle (<i>Java Virtual Machine, JVM</i>) qui effectue beaucoup de contrôles de validité des accès mémoire. L'irrégularité de la courbe est liée à l'activité du garbage collector (libération de la mémoire inutilisé) de la JVM.
+                    La différence entre Rust et C++ pourrait s'expliquer par la jeunesse du compilateur Rust (produisant du code moins optimisé que le compilateur C++) mais aussi par les contrôles de dépassement mémoire (bound checking) ajoutés automatiquement par le compilateur Rust.
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="liens">
+            <div class="w-100">
+                <h2 class="mb-5">Liens</h2>
+                <ul class="fa-ul mb-0">
+                    <li>
+                        <a href="https://github.com/Doyko/Dijkstra-benchmark">
+                            Code source du projet
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+{{/inline}}
+{{~> (parent)~}}

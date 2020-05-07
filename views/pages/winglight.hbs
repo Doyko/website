@@ -1,0 +1,113 @@
+{{#*inline "nav"}}
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#presentation">Présentation</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#cinematiques">Cinématiques</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#dialogues">Dialogues</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#automates">Automates</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#liens">Liens</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/#projets">Retour aux projets</a>
+        </li>
+    </ul>
+{{/inline}}
+{{#*inline "content"}}
+    <div class="container-fluid p-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="presentation">
+            <div class="w-100">
+                <h2 class="mb-0">Winglight</h2>
+                <div class="subheading mb-5">
+                    Jeu vidéo avec Game Maker Studio 2
+                </div>
+                <img src="resources/winglight/pic_menu.png" style="width:70%;height:auto" class="rounded mx-auto d-block" alt="resources/winglight/pic_menu.png">
+                <p class="lead mb-5" style="text-align:justify">
+                    Winglight est un prototype de jeu vidéo que j'ai réalisé avec le moteur de jeu vidéo <a href="https://www.yoyogames.com/">Game Maker studio 2.</a><br>
+                    Ayant appris la base d'un jeu vidéo avec le projet <a href="/yellowSubmarine">Yellow Submarine</a>,
+                    utiliser un moteur de jeu m'a permis de pouvoir approfondir mes connaissances dans l'implémentation de mécaniques avancées d'un jeu vidéo telles que les cinématiques, les dialogues et les automates.
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="cinematiques">
+            <div class="w-100">
+                <h2 class="mb-5">Cinématiques</h2>
+                <img src="resources/winglight/gif_cutscene.gif" style="width:70%;height:auto" class="rounded mx-auto d-block" alt="resources/winglight/gif_cutscene.gif">
+                <p style="text-align:justify">
+                    Le système de cinématique est géré par un objet qui prend en paramètre une liste d'actions. L'objet va exécuter les actions dans l'ordre une par une.<br>
+                    Les actions peuvent prendre plusieurs formes telles que le déplacement d'une entité, le changement de sprite d'une entité ou l'apparition d'une bulle de dialogue.<br>
+                    Chaque action dans la liste est composé d'un pointeur sur fonction et d'une liste d'arguments pour la fonction. Par exemple, la fonction pour déplacer une entité prend en paramètre l'entité, la position souhaitée et la vitesse de déplacement.<br>
+                    L'objet passe à l'action suivante quand la fonction lui renvoie un signal. Par exemple dans le cas du déplacement d'une entité, le signal est renvoyé lorsque l'entité arrive à la position souhaitée.
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="dialogues">
+            <div class="w-100">
+                <h2 class="mb-5">Dialogues</h2>
+                <img src="resources/winglight/gif_dialogue.gif" style="width:70%;height:auto" class="rounded mx-auto d-block" alt="resources/winglight/gif_dialogue.gif">
+                <p style="text-align:justify">
+                    Le système de dialogue implémenté dans le jeu permet de faire des dialogues avec des effets comme le montre le gif ci-dessus.
+                    Pour cela, on construit un objet qui prend en paramètre une chaine de caractères.
+                    Cet objet va afficher à l'écran les caractères à la suite, en ajoutant un caractère à intervalle régulier.<br>
+                    Lorsque le prochain caractère à afficher est un "$", cela implique que la suite du texte doit être sous un autre format, l'objet va donc regarder le caractère suivant le "$" afin d'adapter l'affichage en fonction. Par exemple, si le caractère suivant est un "r", le texte qui va suivre sera affiché en rouge.<br>
+                    On peut varier les effets, par exemple le caractère "/" permet de passer à la ligne suivante, "+" et "-" permet d'augmenter ou de diminuer la vitesse d'affichage du texte. On peut également modifier la position du texte, par exemple en plaçant les lettres suivant une fonction sinusoïdale.<br>
+                    La chaine de caractères correspondant au gif ci-dessus est :
+                </p>
+                <p class="mb-0" style="text-align:justify">
+                    <i>This $adialog system$w allows $1$rLOTS$w$0 of things such as :$/$+$+-$1changing $rspeed$w$0$-$-$/-changing $gcolor$w$/-adding $2$yeffects$w$0$/-$3Lots of effects$0$/-$4It's fabulous !!!$0</i>
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="automates">
+            <div class="w-100">
+                <h2 class="mb-5">Automates</h2>
+                <img src="resources/winglight/gif_MAE.gif" style="width:70%;height:auto" class="rounded mx-auto d-block" alt="resources/winglight/gif_MAE.gif">
+                <p style="text-align:justify">
+                    Les différents ennemis ainsi que le joueur sont des automates, ils passent d'état en état et ont un comportement différent ainsi que des animations différentes en fonction de leur état actuel.<br>
+                    Le gif ci-dessus illustre ce propos pour l'oiseau qui est dans un premier temps dans un état de recherche du joueur. Dans cet état, il se déplace simplement de droite à gauche avec une animation où il vole. La présence du joueur en dessous de lui le fait passer dans un état où il va attaquer. Son sprite va donc changer, ainsi que son déplacement puisqu'il va faire un piqué à grande vitesse.<br>
+                    Quand il touche le sol ou s'il subit une attaque, il va passer dans un troisième état où il va reprendre son envol. Quelque temps plus tard, il va retourner dans l'état initial à la recherche du joueur. L'oiseau est un exemple simple des différents automates que l'on peut trouver dans ce prototype.<br>
+                    Le joueur est également un automate dont l'état dépend des actions du joueur. La complexité de cet automate vient du fait qu'il est composé de plusieurs sous automates, il y a un automate gère les actions du joueur (si le joueur est inactif, s'il attaque ou s'il tire) et un autre gère son état (s'il est au sol, en l'air ou s'il est en récupération après avoir subi des dégâts).
+                    Le sprite qui va être affiché pour le joueur va dépendre donc de l'état des deux automates puisque le joueur peut être en train d'attaquer au sol où bien en l'air. De plus, ces automates communiquent entre eux, puisque certaines actions dépendent de l'état du joueur, par exemple si le joueur vient de subir des dégâts, il ne peut pas attaquer pendant le temps de récupération, même si le joueur appuie sur la touche pour attaquer.
+                </p>
+            </div>
+        </section>
+
+        <hr class="m-0">
+
+        <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="liens">
+            <div class="w-100">
+                <h2 class="mb-5">Liens</h2>
+                <ul class="fa-ul mb-0">
+                    <li>
+                        <a href="https://doyko.itch.io/winglight">
+                            Lien vers la page itch.io du projet
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.yoyogames.com/">
+                            Game Maker studio 2
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+{{/inline}}
+{{~> (parent)~}}
