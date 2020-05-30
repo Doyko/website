@@ -1,0 +1,14 @@
+[Unit]
+Description=webserver in rust by Doyko
+After=network.target
+
+[Service]
+WorkingDirectory=/home/doyko/website
+Type=simple
+User=doyko
+Restart=always
+RestartSec=1
+ExecStart=/home/doyko/website/target/release/website
+
+[Install]
+WantedBy = multi-user.target
